@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "user": {
+    "id": 1,
+    "data": [
+      {
+        "link": "default"
+      }
+    ]
+  }
+}
