@@ -1,16 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "nodemon ./bin/www",
-  "builds": [
+  "rewrites": [
     {
-      "src": "*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/bin/www"
+      "source": "/api/:path*",
+      "destination": "bin/www"
     }
   ]
 }
