@@ -12,6 +12,7 @@ import {
   TagTitle,
   TagText
 } from './style'
+import { useRef } from 'react'
 
 const WebMainSection = ({
   VideoSectionbol,
@@ -20,6 +21,7 @@ const WebMainSection = ({
   TagTitleText,
   TagTextbol
 }) => {
+  const iframeRef = useRef()
   return (
     <MainSectionWrapper>
       <SectionTitleWrapper>
@@ -33,11 +35,22 @@ const WebMainSection = ({
       <VideoSection VideoSectionbol={VideoSectionbol}>
         <div style={{ width: '100%', height: '100%' }}>
           <iframe
+            ref={iframeRef}
             title='video'
             src={video}
             width='100%'
             height='100%'
             allowFullScreen
+            onLoad={()=>{
+              if(iframeRef.current) {
+                const iframeDocument = iframeRef.current.contentDocument || iframeRef.current.contentWindow.document;
+                const mediaContainer = iframeDocument.querySelector(".media-container");
+                console.log(mediaContainer)
+                if (mediaContainer) {
+                  mediaContainer.style.maxWidth = "90vw";
+                }
+              }
+            }}
           ></iframe>
         </div>
         {/* <MainVideo autoPlay={true} loop={true} muted={true} src={video}/> */}

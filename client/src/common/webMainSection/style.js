@@ -76,9 +76,7 @@ export const VideoSection = styled.div`
   position: relative;
   margin-top: 50px;
   display: ${({ VideoSectionbol }) => (VideoSectionbol ? 'block' : 'none')};
-  .media-container {
-    max-width: 220vh;
-  }
+
   @media screen and (max-width: 960px) {
     height: 326px;
   }
