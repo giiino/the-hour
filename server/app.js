@@ -1,16 +1,27 @@
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
+const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 const dotenv = require('dotenv')
+
 dotenv.config()
 
 const newsRouter = require('./routes/news')
 
 const app = express()
 
+app.use(
+  cors({
+    origin: [
+      'https://the-hour-giiino.vercel.app/',
+      'https://the-hour.vercel.app/',
+      'http://localhost:3000/'
+    ]
+  })
+)
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
