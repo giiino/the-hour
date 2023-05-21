@@ -48,11 +48,11 @@ export const getNewsData = () => {
     ) {
       axios
         .all([
-          axiosInstance.get(`/getNews?q=covid-19`),
-          axiosInstance.get(`/getNews?q=taiwan`),
-          axiosInstance.get(`/getNews?q=china`),
-          axiosInstance.get(`/getNews?q=usa`),
-          axiosInstance.get(`/getNews?q=anime`)
+          axiosInstance.get(`/api/news?category=covid-19`),
+          axiosInstance.get(`/api/news?category=taiwan`),
+          axiosInstance.get(`/api/news?category=china`),
+          axiosInstance.get(`/api/news?category=usa`),
+          axiosInstance.get(`/api/news?category=anime`)
         ])
         .then(
           axios.spread(function (resA, resB, resC, resD, resE) {
