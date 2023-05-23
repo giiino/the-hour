@@ -37,81 +37,83 @@ class ArticleSection extends PureComponent {
       handleThrowAwayArticle,
       handleCollectArticle
     } = this.props
+
     return (
       <>
         <ArticaleSectionWrapper bgc={bgc}>
           <ArticaleIncludeWrapper>
             <ArticaleSectionTitle>{sectionTitle}</ArticaleSectionTitle>
-            {dataContent?.slice(0, 3)?.map((item) => {
-              return (
-                <ArticaleWrapper key={item.get('id')}>
-                  <ArticaleImgWrapper
-                    to={`/article/${item.get('id')}`}
-                    onClick={() => {
-                      handleLoadingArtcle(
-                        item.get('title'),
-                        item.get('publishedAt'),
-                        item.get('urlToImage'),
-                        item.get('content'),
-                        item.get('description')
-                      )
-                    }}
-                  >
-                    <ArticaleImg src={item.get('urlToImage')} />
-                  </ArticaleImgWrapper>
-                  <ArticaleTitle
-                    to={`/article/${item.id}`}
-                    onClick={() => {
-                      handleLoadingArtcle(
-                        item.get('title'),
-                        item.get('publishedAt'),
-                        item.get('urlToImage'),
-                        item.get('content'),
-                        item.get('description')
-                      )
-                    }}
-                  >
-                    {item.get('title')}
-                  </ArticaleTitle>
-                  <IconWrapper>
-                    <TimesWatch>
-                      <BsEye />
-                      <span>0</span>
-                    </TimesWatch>
-                    <TimesComment>
-                      <VscComment />
-                      <span>0</span>
-                    </TimesComment>
-                    <TimesLike>
-                      {/* <span>8</span>  */}
-                      {beLikeArticle.some((i) => {
-                        return i.title === item.get('title')
-                      }) ? (
-                        <FcLike
-                          onClick={() =>
-                            handleThrowAwayArticle(item.get('title'))
-                          }
-                        />
-                      ) : (
-                        <VscHeart
-                          onClick={
-                            user
-                              ? () => {
-                                  handleCollectArticle(
-                                    item.get('title'),
-                                    item.get('urlToImage'),
-                                    item.get('description')
-                                  )
-                                }
-                              : handleBoxOpen
-                          }
-                        />
-                      )}
-                    </TimesLike>
-                  </IconWrapper>
-                </ArticaleWrapper>
-              )
-            })}
+            {dataContent?.slice(0, 3) &&
+              dataContent.slice(0, 3).map((item) => {
+                return (
+                  <ArticaleWrapper key={item.get('id')}>
+                    <ArticaleImgWrapper
+                      to={`/article/${item.get('id')}`}
+                      onClick={() => {
+                        handleLoadingArtcle(
+                          item.get('title'),
+                          item.get('publishedAt'),
+                          item.get('urlToImage'),
+                          item.get('content'),
+                          item.get('description')
+                        )
+                      }}
+                    >
+                      <ArticaleImg src={item.get('urlToImage')} />
+                    </ArticaleImgWrapper>
+                    <ArticaleTitle
+                      to={`/article/${item.id}`}
+                      onClick={() => {
+                        handleLoadingArtcle(
+                          item.get('title'),
+                          item.get('publishedAt'),
+                          item.get('urlToImage'),
+                          item.get('content'),
+                          item.get('description')
+                        )
+                      }}
+                    >
+                      {item.get('title')}
+                    </ArticaleTitle>
+                    <IconWrapper>
+                      <TimesWatch>
+                        <BsEye />
+                        <span>0</span>
+                      </TimesWatch>
+                      <TimesComment>
+                        <VscComment />
+                        <span>0</span>
+                      </TimesComment>
+                      <TimesLike>
+                        {/* <span>8</span>  */}
+                        {beLikeArticle.some((i) => {
+                          return i.title === item.get('title')
+                        }) ? (
+                          <FcLike
+                            onClick={() =>
+                              handleThrowAwayArticle(item.get('title'))
+                            }
+                          />
+                        ) : (
+                          <VscHeart
+                            onClick={
+                              user
+                                ? () => {
+                                    handleCollectArticle(
+                                      item.get('title'),
+                                      item.get('urlToImage'),
+                                      item.get('description')
+                                    )
+                                  }
+                                : handleBoxOpen
+                            }
+                          />
+                        )}
+                      </TimesLike>
+                    </IconWrapper>
+                  </ArticaleWrapper>
+                )
+              })}
           </ArticaleIncludeWrapper>
         </ArticaleSectionWrapper>
       </>
