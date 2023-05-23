@@ -17,18 +17,12 @@ const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.AJAX_TO_HOMESECTION:
       return state.merge({
-        covid19List: fromJS(action.covid19_data),
-        taiwanList: fromJS(action.taiwan_data),
-        chinaList: fromJS(action.china_data),
-        usaList: fromJS(action.usa_data),
-        animeList: fromJS(action.anime_data),
-        combineList: fromJS([
-          ...action.covid19_data,
-          ...action.taiwan_data,
-          ...action.china_data,
-          ...action.usa_data,
-          ...action.anime_data
-        ]),
+        covid19List: fromJS(action.payload.covid19News),
+        taiwanList: fromJS(action.payload.taiwanNews),
+        chinaList: fromJS(action.payload.chinaNews),
+        usaList: fromJS(action.payload.usaNews),
+        animeList: fromJS(action.payload.animeNews),
+        combineList: fromJS([].concat(...Object.values(action.payload))),
         loading: false
       })
     case actionTypes.LIKE_ARTICLE:

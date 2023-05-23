@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import BeatLoader from 'react-spinners/BeatLoader'
 
 import { motion } from 'framer-motion'
 
@@ -47,94 +46,86 @@ class ArticlePage extends PureComponent {
           transition={transition}
         >
           <NewsPageWrapper>
-            {title === '' ? (
-              <BeatLoader
-                className='loadingSpinner'
-                color={'#2A53C1'}
-                size={30}
+            <NewsPageContainer>
+              <NewsPageNav>
+                <NavItem>
+                  <NavItemLink
+                    to='/news'
+                    onClick={() => {
+                      handleChangeTopic(0)
+                    }}
+                  >
+                    All News
+                  </NavItemLink>
+                </NavItem>
+                <NavItem>
+                  <NavItemLink
+                    to='/news'
+                    onClick={() => {
+                      handleChangeTopic(1)
+                    }}
+                  >
+                    Covid-19 News
+                  </NavItemLink>
+                </NavItem>
+                <NavItem>
+                  <NavItemLink
+                    to='/news'
+                    onClick={() => {
+                      handleChangeTopic(2)
+                    }}
+                  >
+                    Taiwan News
+                  </NavItemLink>
+                </NavItem>
+                <NavItem>
+                  <NavItemLink
+                    to='/news'
+                    onClick={() => {
+                      handleChangeTopic(3)
+                    }}
+                  >
+                    China News
+                  </NavItemLink>
+                </NavItem>
+                <NavItem>
+                  <NavItemLink
+                    to='/news'
+                    onClick={() => {
+                      handleChangeTopic(4)
+                    }}
+                  >
+                    The USA News
+                  </NavItemLink>
+                </NavItem>
+                <NavItem>
+                  <NavItemLink
+                    to='/news'
+                    onClick={() => {
+                      handleChangeTopic(5)
+                    }}
+                  >
+                    Anime News
+                  </NavItemLink>
+                </NavItem>
+              </NewsPageNav>
+              <SelectBar
+                handleChangeTopic={handleChangeTopic}
+                topicNum={topicNum}
               />
-            ) : (
-              <NewsPageContainer>
-                <NewsPageNav>
-                  <NavItem>
-                    <NavItemLink
-                      to='/news'
-                      onClick={() => {
-                        handleChangeTopic(0)
-                      }}
-                    >
-                      All News
-                    </NavItemLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavItemLink
-                      to='/news'
-                      onClick={() => {
-                        handleChangeTopic(1)
-                      }}
-                    >
-                      Covid-19 News
-                    </NavItemLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavItemLink
-                      to='/news'
-                      onClick={() => {
-                        handleChangeTopic(2)
-                      }}
-                    >
-                      Taiwan News
-                    </NavItemLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavItemLink
-                      to='/news'
-                      onClick={() => {
-                        handleChangeTopic(3)
-                      }}
-                    >
-                      China News
-                    </NavItemLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavItemLink
-                      to='/news'
-                      onClick={() => {
-                        handleChangeTopic(4)
-                      }}
-                    >
-                      The USA News
-                    </NavItemLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavItemLink
-                      to='/news'
-                      onClick={() => {
-                        handleChangeTopic(5)
-                      }}
-                    >
-                      Anime News
-                    </NavItemLink>
-                  </NavItem>
-                </NewsPageNav>
-                <SelectBar
-                  handleChangeTopic={handleChangeTopic}
-                  topicNum={topicNum}
-                />
-                <Article
-                  title={title}
-                  time={time}
-                  img={img}
-                  content={content}
-                  describe={describe}
-                  user={user}
-                  beLikeArticle={beLikeArticle}
-                  handleBoxOpen={handleBoxOpen}
-                  handleThrowAwayArticle={handleThrowAwayArticle}
-                  handleCollectArticle={handleCollectArticle}
-                />
-              </NewsPageContainer>
-            )}
+              <Article
+                title={title}
+                time={time}
+                img={img}
+                content={content}
+                describe={describe}
+                user={user}
+                beLikeArticle={beLikeArticle}
+                handleBoxOpen={handleBoxOpen}
+                handleThrowAwayArticle={handleThrowAwayArticle}
+                handleCollectArticle={handleCollectArticle}
+              />
+            </NewsPageContainer>
           </NewsPageWrapper>
         </motion.div>
       </>

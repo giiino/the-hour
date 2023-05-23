@@ -44,9 +44,9 @@ class ArticleSection extends PureComponent {
             <ArticaleSectionTitle>{sectionTitle}</ArticaleSectionTitle>
             {dataContent.slice(0, 3).map((item) => {
               return (
-                <ArticaleWrapper key={v4()}>
+                <ArticaleWrapper key={item.get('id')}>
                   <ArticaleImgWrapper
-                    to={`/article/${item.get('description')?.split('%')}`}
+                    to={`/article/${item.get('id')}`}
                     onClick={() => {
                       handleLoadingArtcle(
                         item.get('title'),
@@ -60,7 +60,7 @@ class ArticleSection extends PureComponent {
                     <ArticaleImg src={item.get('urlToImage')} />
                   </ArticaleImgWrapper>
                   <ArticaleTitle
-                    to={`/article/${item.get('description')?.split('%')}`}
+                    to={`/article/${item.id}`}
                     onClick={() => {
                       handleLoadingArtcle(
                         item.get('title'),

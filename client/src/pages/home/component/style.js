@@ -13,13 +13,14 @@ export const ArticaleSectionWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 200px;
+  padding: 50px 0;
   box-sizing: border-box;
   width: 91%;
   margin: 0 auto;
   background-color: ${({ bgc }) => (bgc ? '#F2F2F2' : 'none')};
   @media screen and (max-width: 1100px) {
-    width: 100%;
+    width: 95%;
+    /* max-width: 740px; */
   }
   @media screen and (max-width: 960px) {
     padding: 5px 0;
@@ -30,7 +31,8 @@ export const ArticaleIncludeWrapper = styled.div`
   display: flex;
   position: relative;
   padding-top: 40px;
-
+  width: 100%;
+  max-width: 980px;
   @media screen and (max-width: 960px) {
     flex-direction: column;
     justify-content: center;
@@ -68,11 +70,11 @@ export const ArticaleImg = styled.img`
   width: 100%;
   height: 155px;
   @media screen and (max-width: 960px) {
-    height: 400px;
+    height: 45vw;
   }
-  @media screen and (max-width: 780px) {
+  /* @media screen and (max-width: 780px) {
     height: 250px;
-  }
+  } */
 `
 export const ArticaleTitle = styled(LinkR)`
   width: 100%;

@@ -16,9 +16,9 @@ const app = express()
 app.use(
   cors({
     origin: [
-      'https://the-hour-giiino.vercel.app/',
-      'https://the-hour.vercel.app/',
-      'http://localhost:3000/'
+      'https://the-hour-giiino.vercel.app',
+      'https://the-hour.vercel.app',
+      'http://localhost:3000'
     ]
   })
 )

@@ -60,4 +60,24 @@ const getNews = (category) => {
   return exec(sql)
 }
 
-module.exports = { clearDB, getNewsApiData, initDBNewsData, getNews }
+const getNewsById = (id) => {
+  const sql = `select * from news where id = ${id}`
+  const updateViewSql = `update news set views = views + 1 where id = ${id}`
+  return new Promise(async (resolve, reject) => {
+    try {
+      const result = await exec(sql)
+      await exec(updateViewSql)
+      resolve(result)
+    } catch (err) {
+      reject(err)
+    }
+  })
+}
+
+module.exports = {
+  clearDB,
+  getNewsApiData,
+  initDBNewsData,
+  getNews,
+  getNewsById
+}

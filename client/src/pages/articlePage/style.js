@@ -84,19 +84,20 @@ export const BarOption = styled.option`
   }
 `
 export const NewsPostWrapper = styled.div`
-  width: 80%;
+  max-width: 740px;
+  width: 100%;
   margin: auto;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
-  padding: 30px 60px;
+  padding: 30px 0;
   box-sizing: border-box;
 
   @media screen and (max-width: 960px) {
     flex-direction: column;
     border: none;
     height: auto;
-    padding: 0 0;
+    /* padding: 0 0; */
     width: 95%;
   }
 `
@@ -106,9 +107,9 @@ export const NewsPostImgWrapper = styled.div`
 
 export const NewsPostImg = styled.img`
   width: 100%;
-  @media screen and (max-width: 960px) {
+  /* @media screen and (max-width: 960px) {
     height: 250px;
-  }
+  } */
 `
 export const NewsPostDetailWrapper = styled.div`
   width: 100%;
@@ -142,7 +143,7 @@ export const PostSecondTitle = styled.div`
   font-size: 18px;
   line-height: 1.5;
   font-weight: bold;
-  padding: 40px 0;
+  padding: 20px 0;
 `
 export const PostDetail = styled.div`
   font-size: 18px;
@@ -154,7 +155,7 @@ export const PostDataWrapper = styled.div`
   padding-top: 20px;
   border-top: 1px solid #a9a9a9;
   font-size: 14px;
-  /* justify-content:flex-end; */
+
   span {
     margin-right: 5px;
   }
@@ -167,7 +168,34 @@ export const DataComment = styled.div`
   float: left;
 `
 export const DataLike = styled.div`
+  display: flex;
+  align-items: center;
   float: right;
   cursor: pointer;
-  color: red;
+  height: 30px;
+  .like {
+    color: red;
+  }
 `
+
+export const CommentWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 30px 0;
+  margin-top: 20px;
+  border: 1px solid rgba(242, 242, 242, 0.75);
+`
+
+export const CommentContainer = styled.section`
+  width: 90%;
+  max-width: 740px;
+`
+
+export const CommentTitle = styled.h3`
+  font-weight: 900;
+  margin-bottom: 20px;
+`
+
+export const CommentEditor = styled.div``

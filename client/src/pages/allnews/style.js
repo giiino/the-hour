@@ -14,14 +14,11 @@ export const NewsPageWrapper = styled.div`
   padding: 60px 0;
 `
 export const NewsPageContainer = styled.div`
-  width: 70%;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  @media screen and (max-width: 960px) {
-    width: 100%;
-    /* padding:0 10px; */
-  }
 `
 export const NewsPageNav = styled.ul`
   width: 60%;
@@ -90,12 +87,13 @@ export const BarOption = styled.option`
 `
 //NewsPost
 export const NewsPostWrapper = styled.div`
-  width: 100%;
+  max-width: 1065px;
+  width: 95%;
   height: 385.5px;
   border: 1px solid #000;
   margin-bottom: 30px;
   display: flex;
-
+  margin: 10px auto;
   @media screen and (max-width: 960px) {
     flex-direction: column;
     border: none;
@@ -110,8 +108,8 @@ export const NewsPostImgWrapper = styled(LinkR)`
 export const NewsPostImg = styled.img`
   width: 100%;
   height: 385.5px;
-  @media screen and (max-width: 480px) {
-    height: 250px;
+  @media screen and (max-width: 960px) {
+    height: 45vw;
   }
 `
 export const NewsPostDetailWrapper = styled.div`

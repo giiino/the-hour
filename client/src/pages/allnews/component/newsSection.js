@@ -17,6 +17,7 @@ import {
 } from '../style'
 
 const NewsSection = ({
+  id,
   title,
   time,
   imgUrl,
@@ -32,7 +33,7 @@ const NewsSection = ({
   return (
     <NewsPostWrapper>
       <NewsPostImgWrapper
-        to={`/article/${description?.split('%')}`}
+        to={`/article/${id}`}
         onClick={() => {
           handleLoadingArtcle(title, time, imgUrl, content, description)
         }}
@@ -41,7 +42,7 @@ const NewsSection = ({
       </NewsPostImgWrapper>
       <NewsPostDetailWrapper>
         <DetailWrapper
-          to={`/article/${description?.split('%')}`}
+          to={`/article/${id}`}
           onClick={() => {
             handleLoadingArtcle(title, time, imgUrl, content, description)
           }}

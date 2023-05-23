@@ -151,7 +151,8 @@ class AllNews extends PureComponent {
                 {showlist.map((item) => {
                   return (
                     <NewsSection
-                      key={v4()}
+                      key={item.get('id')}
+                      id={item.get('id')}
                       title={item.get('title')}
                       time={item.get('publishedAt')}
                       imgUrl={item.get('urlToImage')}

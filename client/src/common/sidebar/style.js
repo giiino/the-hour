@@ -31,16 +31,16 @@ export const SideBarItem = styled.li`
 export const SideBarLink = styled(NavLink)`
   color: #fff;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   display: inline-block;
   padding: 23px 150px 23px 0;
   &.active {
     color: #8299d6;
   }
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     font-size: 20px;
   }
   @media screen and (max-width: 480px) {
     font-size: 16px;
-  }
+  } */
 `
