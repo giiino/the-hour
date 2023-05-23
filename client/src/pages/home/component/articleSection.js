@@ -42,7 +42,7 @@ class ArticleSection extends PureComponent {
         <ArticaleSectionWrapper bgc={bgc}>
           <ArticaleIncludeWrapper>
             <ArticaleSectionTitle>{sectionTitle}</ArticaleSectionTitle>
-            {dataContent.slice(0, 3).map((item) => {
+            {dataContent?.slice(0, 3)?.map((item) => {
               return (
                 <ArticaleWrapper key={item.get('id')}>
                   <ArticaleImgWrapper
