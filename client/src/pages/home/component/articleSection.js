@@ -4,7 +4,6 @@ import { FcLike } from 'react-icons/fc'
 import { VscComment } from 'react-icons/vsc'
 import { VscHeart } from 'react-icons/vsc'
 import { connect } from 'react-redux'
-import BeatLoader from 'react-spinners/BeatLoader'
 
 import { actionCreators as loginActionCreators } from '../../../common/login/store'
 import { actionCreators as articleActionCreators } from '../../articlePage/store'
@@ -43,6 +42,7 @@ class ArticleSection extends PureComponent {
           <ArticaleIncludeWrapper>
             <ArticaleSectionTitle>{sectionTitle}</ArticaleSectionTitle>
             {dataContent.slice(0, 3).map((item) => {
+              console.log(item.get('id'))
               return (
                 <ArticaleWrapper key={item.get('id')}>
                   <ArticaleImgWrapper

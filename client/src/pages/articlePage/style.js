@@ -188,7 +188,7 @@ export const CommentWrapper = styled.section`
   border: 1px solid rgba(242, 242, 242, 0.75);
 `
 
-export const CommentContainer = styled.section`
+export const CommentContainer = styled.div`
   width: 90%;
   max-width: 740px;
 `
@@ -198,4 +198,42 @@ export const CommentTitle = styled.h3`
   margin-bottom: 20px;
 `
 
-export const CommentEditor = styled.div``
+export const CommentEditor = styled.textarea`
+  width: 100%;
+  cursor: ${({ isEditMode }) => (isEditMode ? 'text' : 'pointer')};
+  resize: none;
+  margin-top: 15px;
+  padding: 15px;
+  font-size: 16px;
+  &::placeholder {
+    color: #000;
+  }
+`
+
+export const CancelButton = styled.div`
+  font-weight: 100;
+  font-size: 14px;
+  color: #2a53ce;
+  cursor: pointer;
+  margin-right: 25px;
+`
+
+export const SubmitButton = styled.div`
+  width: 88px;
+  height: 32px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  line-height: 32px;
+  background-color: ${({ enabled }) => (enabled ? '#2A53C1' : '#dfdfdf')};
+  transition: 0.5s;
+  cursor: ${({ enabled }) => (enabled ? 'pointer' : 'default')};
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+`

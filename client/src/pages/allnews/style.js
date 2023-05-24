@@ -21,17 +21,18 @@ export const NewsPageContainer = styled.div`
   box-sizing: border-box;
 `
 export const NewsPageNav = styled.ul`
-  width: 60%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  text-align: center;
+  display: flex;
+  max-width: 1065px;
+  width: 95%;
+  margin-inline: auto;
+  padding: 50px 0;
   @media screen and (max-width: 960px) {
     display: none;
   }
 `
 export const NavItem = styled.div`
-  padding: 50px 20px;
   white-space: nowrap;
+  margin-right: 40px;
 `
 export const NavItemLink = styled.div`
   color: #0e1c40;
