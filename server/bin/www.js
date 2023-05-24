@@ -7,8 +7,7 @@
 const app = require('../app')
 const debug = require('debug')('test:server')
 const http = require('http')
-const cron = require('node-cron')
-const initDB = require('../service/initDB')
+// const cron = require('node-cron')
 
 /**
  * Get port from environment and store in Express.
@@ -28,10 +27,10 @@ const server = http.createServer(app)
  */
 
 server.listen(port, () => {
-  cron.schedule('0 12 * * *', () => {
-    console.log('start update news db')
-    initDB()
-  })
+  // cron.schedule('0 12 * * *', () => {
+  //   console.log('start update news db')
+  //   initDB()
+  // })
   console.log('server listen on: ', port)
 })
 server.on('error', onError)
