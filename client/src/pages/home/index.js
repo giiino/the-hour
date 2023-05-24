@@ -15,6 +15,7 @@ class Home extends PureComponent {
   render() {
     const { loading, covid19list, taiwanList, chinaList, usaList, animeList } =
       this.props
+
     return (
       <>
         <WebMainSection {...HomeMainSectionObj} />
