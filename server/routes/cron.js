@@ -4,8 +4,8 @@ const initDB = require('../service/initDB')
 
 router.get('/', async (req, res, next) => {
   try {
-    const result = await initDB()
-    res.status(200).json({ success: false, message: result })
+    initDB()
+    res.status(200).json({ success: true, message: 'update!' })
   } catch (err) {
     res.status(500).json({ success: false, message: err })
   }
