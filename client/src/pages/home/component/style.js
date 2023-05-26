@@ -20,9 +20,10 @@ export const ArticaleSectionWrapper = styled.section`
   background-color: ${({ bgc }) => (bgc ? '#F2F2F2' : 'none')};
   @media screen and (max-width: 1100px) {
     width: 95%;
+    max-width: 640px;
     /* max-width: 740px; */
   }
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1100px) {
     padding: 5px 0;
     background-color: #fff;
   }
@@ -33,7 +34,7 @@ export const ArticaleIncludeWrapper = styled.div`
   padding-top: 40px;
   width: 100%;
   max-width: 980px;
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1100px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -55,7 +56,7 @@ export const ArticaleWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1100px) {
     width: 100%;
     align-items: center;
     padding: 0;
@@ -69,28 +70,36 @@ export const ArticaleImgWrapper = styled(LinkR)`
 export const ArticaleImg = styled.img`
   width: 100%;
   height: 155px;
-  @media screen and (max-width: 960px) {
+  display: block;
+  @media screen and (max-width: 1100px) {
     height: 45vw;
   }
   /* @media screen and (max-width: 780px) {
     height: 250px;
   } */
 `
-export const ArticaleTitle = styled(LinkR)`
-  width: 100%;
-  font-size: 18px;
+export const TitleWrapper = styled.div`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+  padding: 15px 0;
+  height: 132px;
+  @media screen and (max-width: 1100px) {
+    height: auto;
+  }
+`
+
+export const ArticaleTitle = styled(LinkR)`
+  width: 100%;
+  font-size: 18px;
   font-weight: 800;
-  height: 32%;
+
   transition: 0.1s all ease-in;
   line-height: 1.5;
   text-decoration: none;
   color: #000;
-  padding: 10px 0;
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1100px) {
     text-align: center;
   }
   &:hover {

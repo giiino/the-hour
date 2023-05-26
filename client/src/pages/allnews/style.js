@@ -96,6 +96,7 @@ export const NewsPostWrapper = styled.div`
   display: flex;
   margin: 10px auto;
   @media screen and (max-width: 960px) {
+    max-width: 640px;
     flex-direction: column;
     border: none;
     height: auto;
@@ -115,11 +116,13 @@ export const NewsPostImg = styled.img`
 `
 export const NewsPostDetailWrapper = styled.div`
   width: 100%;
-  box-sizing: border-box;
   padding: 0 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media screen and (max-width: 960px) {
+    padding: 0;
+  }
 `
 export const DetailWrapper = styled(LinkR)`
   transition: 0.2 all ease-in;

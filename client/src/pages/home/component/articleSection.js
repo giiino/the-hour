@@ -11,6 +11,7 @@ import { actionCreators } from '../store'
 import {
   ArticaleSectionWrapper,
   ArticaleSectionTitle,
+  TitleWrapper,
   ArticaleIncludeWrapper,
   ArticaleWrapper,
   ArticaleImgWrapper,
@@ -59,20 +60,22 @@ class ArticleSection extends PureComponent {
                   >
                     <ArticaleImg src={item.get('urlToImage')} />
                   </ArticaleImgWrapper>
-                  <ArticaleTitle
-                    to={`/article/${item.id}`}
-                    onClick={() => {
-                      handleLoadingArtcle(
-                        item.get('title'),
-                        item.get('publishedAt'),
-                        item.get('urlToImage'),
-                        item.get('content'),
-                        item.get('description')
-                      )
-                    }}
-                  >
-                    {item.get('title')}
-                  </ArticaleTitle>
+                  <TitleWrapper>
+                    <ArticaleTitle
+                      to={`/article/${item.get('id')}`}
+                      onClick={() => {
+                        handleLoadingArtcle(
+                          item.get('title'),
+                          item.get('publishedAt'),
+                          item.get('urlToImage'),
+                          item.get('content'),
+                          item.get('description')
+                        )
+                      }}
+                    >
+                      {item.get('title')}
+                    </ArticaleTitle>
+                  </TitleWrapper>
                   <IconWrapper>
                     <TimesWatch>
                       <BsEye />
