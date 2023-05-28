@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 export const LoginWrapper = styled.div`
@@ -13,8 +14,9 @@ export const LoginWrapper = styled.div`
   @media screen and (max-width: 960px) {
   }
 `
-export const LoginBox = styled.div`
-  width: 350px;
+export const LoginBox = styled(motion.div)`
+  width: 95%;
+  max-width: 500px;
   background: #fff;
   position: relative;
   padding: 35px 60px;
@@ -31,19 +33,12 @@ export const LoginBox = styled.div`
     right: 5px;
     cursor: pointer;
   }
-  @media screen and (max-width: 768px) {
-    width: 350px;
-    padding: 35px 45px;
-  }
-  @media screen and (max-width: 480px) {
-    width: 350px;
-    padding: 35px 25px;
-  }
 `
 export const LoginTitle = styled.div`
   font-size: 48px;
   font-weight: 900;
   padding: 20px 0;
+  white-space: nowrap;
   @media screen and (max-width: 768px) {
     font-size: 40px;
   }
@@ -59,7 +54,9 @@ export const LoginText = styled.div`
 `
 export const AccInput = styled.input`
   margin: 12px 0;
-  width: 80%;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
   height: 40px;
   font-weight: bold;
   font-size: 17px;
@@ -70,7 +67,9 @@ export const AccInput = styled.input`
 `
 export const PwdInput = styled.input`
   margin: 12px 0;
-  width: 80%;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
   height: 40px;
   font-weight: bold;
   font-size: 17px;
@@ -83,7 +82,9 @@ export const SubmitBtn = styled.div`
   margin: 12px 0;
   font-size: 15px;
   font-weight: 800;
-  width: 80%;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
   padding: 16px 0;
   color: #fff;
   background: #2a53c1;
@@ -102,20 +103,29 @@ export const SubmitBtn = styled.div`
 export const BoxUnderText = styled.div`
   padding: 10px 0;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
   text-align: center;
+  white-space: nowrap;
   @media screen and (max-width: 960px) {
   }
 `
 export const GoogleLoginBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   margin: 12px 0;
   font-size: 15px;
   font-weight: 300;
-  width: 80%;
-  padding: 16px 0;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
+  padding: 5px 0;
   color: #000;
   background: #fff;
   text-align: center;
-  display: block;
   cursor: pointer;
   transition: 0.2s all ease-in-out;
   border: 1px solid #888888;
@@ -124,19 +134,19 @@ export const GoogleLoginBtn = styled.div`
     transition: 0.2s all ease-in-out;
     background-color: #e8e8e8;
   }
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 380px) {
+    span {
+      display: none;
+    }
   }
 `
 export const GoogleLogo = styled.img`
-  position: absolute;
-  left: 10px;
-  top: 2px;
+  display: block;
   width: 40px;
   @media screen and (max-width: 960px) {
   }
 `
 export const UnderLink = styled.div`
-  margin-left: 5px;
   cursor: pointer;
   font-weight: bold;
   @media screen and (max-width: 960px) {

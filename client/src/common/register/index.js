@@ -37,58 +37,56 @@ class Register extends PureComponent {
       <>
         {registerBoxOpen ? (
           <LoginWrapper>
-            <motion.div
+            <LoginBox
               initial='out'
               animate='in'
               exit='out'
               variants={animateTwo}
               transition={transitionTwo}
             >
-              <LoginBox>
-                <BiX className='leaveBtn' onClick={handleBoxClose} />
-                <LoginTitle>Sign up</LoginTitle>
-                <LoginText failState={failState}>{error}</LoginText>
-                <UserInput
-                  placeholder='yourname'
-                  ref={(input) => {
-                    this.username = input
-                  }}
-                />
-                <AccInput
-                  placeholder='email'
-                  ref={(input) => {
-                    this.account = input
-                  }}
-                />
-                <PwdInput
-                  type='password'
-                  placeholder='password'
-                  ref={(input) => {
-                    this.password = input
-                  }}
-                />
-                <SubmitBtn
-                  onClick={() => {
-                    handleRegister(
-                      this.username.value,
-                      this.account.value,
-                      this.password.value
-                    )
-                  }}
-                >
-                  Submit
-                </SubmitBtn>
-                <BoxUnderText>
-                  <p>Already have an account?</p>
-                  <UnderLink onClick={handleChangeMode}>click here</UnderLink>
-                </BoxUnderText>
-                {loading ? (
-                  <LoadingBox>
-                    <FadeLoader color={'#2A53C1'} size={40} />
-                  </LoadingBox>
-                ) : null}
-              </LoginBox>
-            </motion.div>
+              <BiX className='leaveBtn' onClick={handleBoxClose} />
+              <LoginTitle>Sign up</LoginTitle>
+              <LoginText failState={failState}>{error}</LoginText>
+              <UserInput
+                placeholder='yourname'
+                ref={(input) => {
+                  this.username = input
+                }}
+              />
+              <AccInput
+                placeholder='email'
+                ref={(input) => {
+                  this.account = input
+                }}
+              />
+              <PwdInput
+                type='password'
+                placeholder='password'
+                ref={(input) => {
+                  this.password = input
+                }}
+              />
+              <SubmitBtn
+                onClick={() => {
+                  handleRegister(
+                    this.username.value,
+                    this.account.value,
+                    this.password.value
+                  )
+                }}
+              >
+                Submit
+              </SubmitBtn>
+              <BoxUnderText>
+                <p>Already have an account?</p>
+                <UnderLink onClick={handleChangeMode}>click here</UnderLink>
+              </BoxUnderText>
+              {loading ? (
+                <LoadingBox>
+                  <FadeLoader color={'#2A53C1'} size={40} />
+                </LoadingBox>
+              ) : null}
+            </LoginBox>
           </LoginWrapper>
         ) : null}
       </>

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 export const LoginWrapper = styled.div`
@@ -13,8 +14,9 @@ export const LoginWrapper = styled.div`
   @media screen and (max-width: 960px) {
   }
 `
-export const LoginBox = styled.div`
-  width: 350px;
+export const LoginBox = styled(motion.div)`
+  width: 95%;
+  max-width: 500px;
   background: #fff;
   position: relative;
   padding: 35px 60px;
@@ -32,19 +34,12 @@ export const LoginBox = styled.div`
     right: 5px;
     cursor: pointer;
   }
-  @media screen and (max-width: 768px) {
-    width: 350px;
-    padding: 35px 45px;
-  }
-  @media screen and (max-width: 480px) {
-    width: 350px;
-    padding: 35px 25px;
-  }
 `
 export const LoginTitle = styled.div`
   font-size: 48px;
   font-weight: 900;
   padding: 20px 0;
+  white-space: nowrap;
   @media screen and (max-width: 768px) {
     font-size: 40px;
   }
@@ -60,7 +55,9 @@ export const LoginText = styled.div`
 `
 export const UserInput = styled.input`
   margin: 12px 0;
-  width: 80%;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
   height: 40px;
   font-weight: bold;
   font-size: 17px;
@@ -71,7 +68,9 @@ export const UserInput = styled.input`
 `
 export const AccInput = styled.input`
   margin: 12px 0;
-  width: 80%;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
   height: 40px;
   font-weight: bold;
   font-size: 17px;
@@ -82,7 +81,9 @@ export const AccInput = styled.input`
 `
 export const PwdInput = styled.input`
   margin: 12px 0;
-  width: 80%;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
   height: 40px;
   font-weight: bold;
   font-size: 17px;
@@ -95,7 +96,9 @@ export const SubmitBtn = styled.div`
   margin: 12px 0;
   font-size: 15px;
   font-weight: 800;
-  width: 82.5%;
+  width: 95%;
+  max-width: 304px;
+  min-width: 200px;
   padding: 20px 0;
   color: #fff;
   background: #2a53c1;
@@ -113,7 +116,11 @@ export const SubmitBtn = styled.div`
 export const BoxUnderText = styled.div`
   padding: 10px 0;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
   text-align: center;
+  white-space: nowrap;
   @media screen and (max-width: 960px) {
   }
 `

@@ -40,55 +40,53 @@ class Login extends PureComponent {
       <>
         {loginBoxOpen ? (
           <LoginWrapper>
-            <motion.div
+            <LoginBox
               initial='out'
               animate='in'
               exit='out'
               variants={animateTwo}
               transition={transitionTwo}
             >
-              <LoginBox>
-                <BiX className='leaveBtn' onClick={handleBoxClose} />
-                <LoginTitle>Sign in</LoginTitle>
-                <LoginText failState={failState}>{error}</LoginText>
-                <AccInput
-                  placeholder='email'
-                  ref={(input) => {
-                    this.account = input
-                  }}
-                />
-                <PwdInput
-                  type='password'
-                  placeholder='password'
-                  ref={(input) => {
-                    this.password = input
-                  }}
-                />
-                <SubmitBtn
-                  onClick={() => {
-                    handleLogin(this.account.value, this.password.value)
-                  }}
-                >
-                  Submit
-                </SubmitBtn>
-                <GoogleLoginBtn onClick={handleGoogleLogin}>
-                  <GoogleLogo src={Logo} />
-                  Log in with Google
-                </GoogleLoginBtn>
-                <BoxUnderText>
-                  <p>New to The Hours?</p>
-                  <UnderLink onClick={handleChangeMode}>
-                    create an account
-                  </UnderLink>
-                </BoxUnderText>
+              <BiX className='leaveBtn' onClick={handleBoxClose} />
+              <LoginTitle>Sign in</LoginTitle>
+              <LoginText failState={failState}>{error}</LoginText>
+              <AccInput
+                placeholder='email'
+                ref={(input) => {
+                  this.account = input
+                }}
+              />
+              <PwdInput
+                type='password'
+                placeholder='password'
+                ref={(input) => {
+                  this.password = input
+                }}
+              />
+              <SubmitBtn
+                onClick={() => {
+                  handleLogin(this.account.value, this.password.value)
+                }}
+              >
+                Submit
+              </SubmitBtn>
+              <GoogleLoginBtn onClick={handleGoogleLogin}>
+                <GoogleLogo src={Logo} />
+                <span>Log in with Google</span>
+              </GoogleLoginBtn>
+              <BoxUnderText>
+                <p>New to The Hours?</p>
+                <UnderLink onClick={handleChangeMode}>
+                  create an account
+                </UnderLink>
+              </BoxUnderText>
 
-                {loading ? (
-                  <LoadingBox>
-                    <FadeLoader color={'#2A53C1'} size={40} />
-                  </LoadingBox>
-                ) : null}
-              </LoginBox>
-            </motion.div>
+              {loading ? (
+                <LoadingBox>
+                  <FadeLoader color={'#2A53C1'} size={40} />
+                </LoadingBox>
+              ) : null}
+            </LoginBox>
           </LoginWrapper>
         ) : null}
       </>
