@@ -213,8 +213,8 @@ export const CommentEditor = styled.textarea`
 export const CancelButton = styled.div`
   font-weight: 100;
   font-size: 14px;
-  color: #2a53ce;
-  cursor: pointer;
+  color: ${({ disable }) => (disable ? '#a7b8e8' : '#2a53ce')};
+  cursor: ${({ disable }) => (disable ? 'default' : 'pointer')};
   margin-right: 25px;
 `
 
@@ -236,4 +236,39 @@ export const ButtonWrapper = styled.div`
   align-items: center;
   width: 100%;
   margin-top: 15px;
+`
+
+export const CommentList = styled.div`
+  margin-top: 15px;
+`
+
+export const CommentItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+`
+
+export const CommentUser = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+`
+
+export const CommentUserPhoto = styled.img`
+  width: 36px;
+  height: 36px;
+  border-radius: 36px;
+`
+
+export const CommentUserInfo = styled.div`
+  font-size: 14px;
+  margin-left: 10px;
+  .time {
+    margin-top: 5px;
+  }
+`
+
+export const CommentContent = styled.div`
+  margin-left: 46px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
 `

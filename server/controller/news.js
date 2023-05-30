@@ -2,7 +2,7 @@ const { exec, escape } = require('../db/mysql')
 const axios = require('axios')
 
 const clearDB = () => {
-  const sql = 'delete from news'
+  const sql = 'delete from news where switch = 0;'
   return exec(sql)
 }
 
@@ -55,14 +55,14 @@ const getNewsApiData = (category) => {
 }
 
 const getNews = (category) => {
-  const sql = `select * from news where category = '${category}'
+  const sql = `select * from news where category = '${category}';
   `
   return exec(sql)
 }
 
 const getNewsById = (id) => {
-  const sql = `select * from news where id = ${id}`
-  const updateViewSql = `update news set views = views + 1 where id = ${id}`
+  const sql = `select * from news where id = ${id};`
+  const updateViewSql = `update news set views = views + 1 where id = ${id};`
   return new Promise(async (resolve, reject) => {
     try {
       const result = await exec(sql)

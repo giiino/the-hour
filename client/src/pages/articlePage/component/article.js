@@ -4,6 +4,7 @@ import { VscHeart } from 'react-icons/vsc'
 import { useParams } from 'react-router-dom'
 import BeatLoader from 'react-spinners/BeatLoader'
 
+import { addComment } from '../../../common/api/comment'
 import { fetchNewsByIdApi } from '../../../common/api/news'
 import {
   NewsPostWrapper,
@@ -43,6 +44,15 @@ const Article = ({
     like
   } = article || {}
 
+  const onAddComment = async (content) => {
+    const fromUserName = user.displayName
+    const userPhoto = user.photoURL
+    await addComment({ content, fromUserName, newsId, userPhoto })
+    const article = await fetchNewsByIdApi(newsId)
+    setArticle(article)
+    return Promise.resolve()
+  }
+
   useEffect(() => {
     setIsLoading(true)
     fetchNewsByIdApi(newsId)
@@ -51,7 +61,6 @@ const Article = ({
         setIsLoading(false)
       })
   }, [newsId])
-
   return (
     <NewsPostWrapper>
       {isLoading ? (
@@ -106,7 +115,12 @@ const Article = ({
                   )}
                 </DataLike>
               </PostDataWrapper>
-              <Comment />
+              <Comment
+                onAddComment={onAddComment}
+                handleBoxOpen={handleBoxOpen}
+                comment={comment}
+                user={user}
+              />
             </>
           </NewsPostDetailWrapper>
         </>

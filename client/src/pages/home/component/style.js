@@ -84,7 +84,7 @@ export const TitleWrapper = styled.div`
   -webkit-line-clamp: 4;
   overflow: hidden;
   padding: 15px 0;
-  height: 132px;
+  height: 131px;
   @media screen and (max-width: 1100px) {
     height: auto;
   }

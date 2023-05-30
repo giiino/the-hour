@@ -10,6 +10,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const newsRouter = require('./routes/news')
+const commentRouter = require('./routes/comment')
 const cronsRouter = require('./routes/cron')
 
 const app = express()
@@ -34,6 +35,7 @@ app.use(express.static(root))
 
 app.use('/api/news', newsRouter)
 app.use('/api/crons', cronsRouter)
+app.use('/api/comment', commentRouter)
 
 app.use('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../', 'client', 'build', 'index.html'))
