@@ -1,6 +1,7 @@
 import React from 'react'
 import { FcLike } from 'react-icons/fc'
 import { VscHeart } from 'react-icons/vsc'
+import { useLocation } from 'react-router-dom'
 
 import {
   NewsPostWrapper,
@@ -17,12 +18,7 @@ import {
 } from '../style'
 
 const NewsSection = ({
-  id,
-  title,
-  time,
-  imgUrl,
-  description,
-  content,
+  newsData,
   user,
   beLikeArticle,
   handleLoadingArtcle,
@@ -30,21 +26,27 @@ const NewsSection = ({
   handleThrowAwayArticle,
   handleCollectArticle
 }) => {
+  const location = useLocation()
+  const { pathname } = location
+  const splitLocation = pathname.split('/')[1]
+
+  const { title, time, urlToImage, content, description, id, views, comment } =
+    Object.fromEntries(Array.from(newsData))
   return (
     <NewsPostWrapper>
       <NewsPostImgWrapper
         to={`/article/${id}`}
         onClick={() => {
-          handleLoadingArtcle(title, time, imgUrl, content, description)
+          handleLoadingArtcle(title, time, urlToImage, content, description)
         }}
       >
-        <NewsPostImg src={imgUrl} />
+        <NewsPostImg src={urlToImage} />
       </NewsPostImgWrapper>
       <NewsPostDetailWrapper>
         <DetailWrapper
           to={`/article/${id}`}
           onClick={() => {
-            handleLoadingArtcle(title, time, imgUrl, content, description)
+            handleLoadingArtcle(title, time, urlToImage, content, description)
           }}
         >
           <PostTitle>{title}</PostTitle>
@@ -52,10 +54,13 @@ const NewsSection = ({
         </DetailWrapper>
         <PostDataWrapper>
           <DataView>
-            <span>0</span>views
+            <span>{splitLocation === 'search' ? 0 : views}</span>views
           </DataView>
           <DataComment>
-            <span>0</span>comments
+            <span>
+              {splitLocation === 'search' ? 0 : JSON.parse(comment).length}
+            </span>
+            comments
           </DataComment>
           <DataLike onClick={user ? null : handleBoxOpen}>
             {/* <span>24</span> */}
@@ -68,7 +73,7 @@ const NewsSection = ({
                 onClick={
                   user
                     ? () => {
-                        handleCollectArticle(title, imgUrl, description)
+                        handleCollectArticle(title, urlToImage, description)
                       }
                     : handleBoxOpen
                 }

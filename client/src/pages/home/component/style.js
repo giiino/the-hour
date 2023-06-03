@@ -87,6 +87,7 @@ export const TitleWrapper = styled.div`
   height: 131px;
   @media screen and (max-width: 1100px) {
     height: auto;
+    padding: 5px 0;
   }
 `
 

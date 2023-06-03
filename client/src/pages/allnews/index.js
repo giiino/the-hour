@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import BeatLoader from 'react-spinners/BeatLoader'
 
 import { motion } from 'framer-motion'
-import { v4 } from 'uuid'
 
 import { animateOne, transition } from '../../common/animation'
 import { actionCreators as loginActionCreators } from '../../common/login/store'
@@ -152,12 +151,7 @@ class AllNews extends PureComponent {
                   return (
                     <NewsSection
                       key={item.get('id')}
-                      id={item.get('id')}
-                      title={item.get('title')}
-                      time={item.get('publishedAt')}
-                      imgUrl={item.get('urlToImage')}
-                      description={item.get('description')}
-                      content={item.get('content')}
+                      newsData={item}
                       user={user}
                       beLikeArticle={beLikeArticle}
                       handleLoadingArtcle={handleLoadingArtcle}

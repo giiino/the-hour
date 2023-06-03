@@ -13,6 +13,13 @@ const formatNewsData = (target, category) => {
   }
 }
 
+const formatSourceList = (target, category) => {
+  return target.map((item) => {
+    return formatNewsData(item, category)
+  })
+}
+
 module.exports = {
-  formatNewsData
+  formatNewsData,
+  formatSourceList
 }

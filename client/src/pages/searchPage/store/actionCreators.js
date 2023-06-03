@@ -12,8 +12,8 @@ const newsDataAction = (article) => ({
 
 export const getNewsData = (term) => {
   return (dispatch) => {
-    axiosInstance.get(`/getNews?q=${term}`).then((res) => {
-      dispatch(newsDataAction(res.data.articles))
+    axiosInstance.get(`/api/search?q=${term}`).then((res) => {
+      dispatch(newsDataAction(res.data))
     })
   }
 }

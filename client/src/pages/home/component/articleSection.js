@@ -78,11 +78,11 @@ class ArticleSection extends PureComponent {
                   <IconWrapper>
                     <TimesWatch>
                       <BsEye />
-                      <span>0</span>
+                      <span>{item.get('views')}</span>
                     </TimesWatch>
                     <TimesComment>
                       <VscComment />
-                      <span>0</span>
+                      <span>{JSON.parse(item.get('comment')).length}</span>
                     </TimesComment>
                     <TimesLike>
                       {/* <span>8</span>  */}

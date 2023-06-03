@@ -55,14 +55,11 @@ class SearchPage extends PureComponent {
                 I'm sorry that the result of " {searchTerm} " was not found
               </EmptyInformation>
             ) : (
-              searchlist.map((item) => {
+              searchlist?.map((item) => {
                 return (
                   <NewsSection
                     key={v4()}
-                    title={item.get('title')}
-                    imgUrl={item.get('urlToImage')}
-                    description={item.get('description')}
-                    content={item.get('content')}
+                    newsData={item}
                     user={user}
                     handleLoadingArtcle={handleLoadingArtcle}
                     beLikeArticle={beLikeArticle}
@@ -92,6 +89,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleChangeTerm(term) {
+    console.log(term)
     dispatch(actionCreators.changeTermAction(term))
     dispatch(actionCreators.getNewsData(term))
   },

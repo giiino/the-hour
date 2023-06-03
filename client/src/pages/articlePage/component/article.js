@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FcLike } from 'react-icons/fc'
 import { VscHeart } from 'react-icons/vsc'
 import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import BeatLoader from 'react-spinners/BeatLoader'
 
 import { addComment } from '../../../common/api/comment'
@@ -30,6 +31,9 @@ const Article = ({
   handleThrowAwayArticle,
   handleCollectArticle
 }) => {
+  const location = useLocation()
+  const { pathname } = location
+  const splitLocation = pathname.split('/')[1]
   const [article, setArticle] = useState(undefined)
   const [isLoading, setIsLoading] = useState(false)
   const { id: newsId } = useParams()
