@@ -123,6 +123,7 @@ export const DetailWrapper = styled.div`
   text-decoration: none;
   color: #000;
   padding: 50px 0;
+  cursor: pointer;
 `
 export const PostTitle = styled.div`
   font-size: 40px;

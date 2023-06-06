@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import BeatLoader from 'react-spinners/BeatLoader'
 
+import dayjs from 'dayjs'
+
 import { addComment } from '../../../common/api/comment'
 import { fetchNewsByIdApi } from '../../../common/api/news'
 import {
@@ -22,6 +24,7 @@ import {
   DataComment,
   DataLike
 } from '../style'
+import { ConfirmModal } from './ConfirmModal'
 import { Comment } from './comment'
 
 const Article = ({
@@ -31,6 +34,7 @@ const Article = ({
   handleThrowAwayArticle,
   handleCollectArticle
 }) => {
+  const [openRedirectModal, setOpenRedirectModal] = useState(false)
   const location = useLocation()
   const { pathname } = location
   const splitLocation = pathname.split('/')[1]
@@ -45,6 +49,7 @@ const Article = ({
     describe,
     views,
     comment,
+    url,
     like
   } = article || {}
 
@@ -65,6 +70,7 @@ const Article = ({
         setIsLoading(false)
       })
   }, [newsId])
+
   return (
     <NewsPostWrapper>
       {isLoading ? (
@@ -77,14 +83,16 @@ const Article = ({
       ) : (
         <>
           <PostTitle>{title}</PostTitle>
-          <PostDate>{publishedAt}</PostDate>
+          <PostDate>
+            {dayjs(publishedAt).format('YYYY-MM-DD HH:mm:ss')}
+          </PostDate>
           <PostSecondTitle dangerouslySetInnerHTML={{ __html: describe }} />
           <NewsPostImgWrapper>
             <NewsPostImg src={urlToImage} />
           </NewsPostImgWrapper>
           <NewsPostDetailWrapper>
             <>
-              <DetailWrapper>
+              <DetailWrapper onClick={() => setOpenRedirectModal(true)}>
                 <PostDetail dangerouslySetInnerHTML={{ __html: content }} />
               </DetailWrapper>
               <PostDataWrapper>
@@ -129,6 +137,11 @@ const Article = ({
           </NewsPostDetailWrapper>
         </>
       )}
+      <ConfirmModal
+        open={openRedirectModal}
+        setOpen={setOpenRedirectModal}
+        url={url}
+      />
     </NewsPostWrapper>
   )
 }
