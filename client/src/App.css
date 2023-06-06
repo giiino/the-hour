@@ -138,3 +138,11 @@ textarea::placeholder {
   font-family: Madefor, Helvetica Neue, Helvetica, Arial, メイリオ, meiryo,
     ヒラギノ角ゴ pro w3, hiragino kaku gothic !important;
 }
+
+iframe  #media-container {
+  max-width: 1130px !important;
+}
+
+.MuiPaper-root {
+  top: 55px;
+}

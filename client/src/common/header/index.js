@@ -10,6 +10,7 @@ import { actionCreators as searchPageCreators } from '../../pages/searchPage/sto
 import { actionCreators as loginActionCreators } from '../login/store'
 import HeaderNav from './component/headerNav'
 import SearchBox from './component/searchBox'
+import { UserDropdown } from './component/userDropdown'
 import { actionCreators } from './store'
 import {
   HeaderWrapper,
@@ -50,15 +51,10 @@ class Header extends PureComponent {
             <HeaderNav />
             <SearchBox handleChangeTerm={handleChangeTerm} />
             {user ? (
-              <>
-                <LoginDetailWrapper>
-                  <UserName>
-                    <NameItem>Hello!</NameItem>
-                    <NameItem className='name'>{user['displayName']}</NameItem>
-                  </UserName>
-                  <LogoutBtn onClick={handleLogOut}>Log out</LogoutBtn>
-                </LoginDetailWrapper>
-              </>
+              <UserDropdown
+                userName={user['displayName']}
+                handleLogOut={handleLogOut}
+              />
             ) : (
               <LoginDetailWrapper>
                 <LoginBtn onClick={handleBoxOpen}>Log in</LoginBtn>
