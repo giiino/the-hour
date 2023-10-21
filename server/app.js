@@ -17,13 +17,15 @@ const cronsRouter = require('./routes/cron')
 const app = express()
 
 app.use(
-  cors({
-    origin: [
-      'https://the-hour-giiino.vercel.app',
-      'https://the-hour.vercel.app',
-      'http://localhost:3000'
-    ]
-  })
+  // cors({
+  //   origin: [
+  //     'https://the-hour-giiino.vercel.app',
+  //     'https://the-hour.vercel.app',
+  //     'http://localhost:3000',
+  //     'http://192.168.1.10:5000'
+  //   ]
+  // })
+  cors()
 )
 app.use(logger('dev'))
 app.use(express.json())
@@ -34,10 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 const root = require('path').join(__dirname, '../', 'client', 'build')
 app.use(express.static(root))
 
-app.use('/api/news', newsRouter)
-app.use('/api/crons', cronsRouter)
-app.use('/api/comment', commentRouter)
-app.use('/api/search', searchRouter)
+app.use('/news', newsRouter)
+app.use('/crons', cronsRouter)
+app.use('/comment', commentRouter)
+app.use('/search', searchRouter)
 
 app.use('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../', 'client', 'build', 'index.html'))
