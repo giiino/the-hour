@@ -16,16 +16,12 @@ const cronsRouter = require('./routes/cron')
 
 const app = express()
 
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',')
+
 app.use(
-  // cors({
-  //   origin: [
-  //     'https://the-hour-giiino.vercel.app',
-  //     'https://the-hour.vercel.app',
-  //     'http://localhost:3000',
-  //     'http://192.168.1.10:5000'
-  //   ]
-  // })
-  cors()
+  cors({
+    origin: allowedOrigins
+  })
 )
 app.use(logger('dev'))
 app.use(express.json())
