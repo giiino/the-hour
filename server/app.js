@@ -36,10 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 const root = require('path').join(__dirname, '../', 'client', 'build')
 app.use(express.static(root))
 
-app.use('/news', newsRouter)
-app.use('/crons', cronsRouter)
-app.use('/comment', commentRouter)
-app.use('/search', searchRouter)
+app.use('/api/news', newsRouter)
+app.use('/api/crons', cronsRouter)
+app.use('/api/comment', commentRouter)
+app.use('/api/search', searchRouter)
 
 app.use('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../', 'client', 'build', 'index.html'))
