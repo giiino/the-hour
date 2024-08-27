@@ -1,3 +1,5 @@
+import { v4 } from 'uuid'
+
 import { axiosInstance } from '../../../common/utils'
 import { actionTypes } from './'
 
@@ -13,7 +15,11 @@ const newsDataAction = (article) => ({
 export const getNewsData = (term) => {
   return (dispatch) => {
     axiosInstance.get(`/api/search?q=${term}`).then((res) => {
-      dispatch(newsDataAction(res.data))
+      const article = res.data.map((item) => ({
+        ...item,
+        id: v4()
+      }))
+      dispatch(newsDataAction(article))
     })
   }
 }
