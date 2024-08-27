@@ -2,7 +2,6 @@ name: Update News Database
 
 on:
   schedule:
-    # 每24小時運行一次
     - cron: "0 0 * * *"
 
 jobs:
@@ -20,12 +19,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./server
 
       - name: Run update script
         env:
           NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_NAME: ${{ secrets.DB_NAME }}
-        run: node ./server/service/update-script.js
+          MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PWD: ${{ secrets.MYSQL_PWD }}
+          MYSQL_PORT: ${{ secrets.MYSQL_PORT }}
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+        run: node ./update-script.js
+        working-directory: ./server/service
